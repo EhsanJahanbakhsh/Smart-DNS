@@ -1,5 +1,4 @@
-# maj0rdns
-A **Smart DNS** for bypassing geo restorations of specific various web services.
+rezdnsssing geo restorations of specific various web services.
 
 *🎗️ Hint : this service should be only available to a specefic geo or specefic ip addresses to prevent attacks and etc problem*
 
@@ -11,20 +10,20 @@ A **Smart DNS** for bypassing geo restorations of specific various web services.
 ### Pull & run the pre build image
 ```bash
 # pull the image and run it
-docker pull maj0rmil4d/maj0rdns
-docker run -d -it --cap-add=NET_ADMIN -p 53:53/udp -p 443:443 -p 80:80 -e IP=PublicIpOfContainer maj0rmil4d/maj0rdns
+docker pull rezdns/rezdns
+docker run -d -it --cap-add=NET_ADMIN -p 53:53/udp -p 443:443 -p 80:80 -e IP=PublicIpOfContainer rezdns/rezdns
 ```
 
 ### Build
 ```bash
 # Build the docker image, so you could use the docker image and its context in the future easily
-docker build . -t maj0rdns:latest
+docker build . -t rezdns/rezdns:latest
 ```
 
 ### Run
 ```bash
 # Now run the mentioned docker in the previous step
-docker run -d -it --cap-add=NET_ADMIN -p 53:53/udp -p 443:443 -p 80:80 -e IP=PublicIpOfContainer maj0rdns:latest
+docker run -d -it --cap-add=NET_ADMIN -p 53:53/udp -p 443:443 -p 80:80 -e IP=PublicIpOfContainer rezdns/rezdns:latest
 ```
 
 ### Usage
@@ -62,40 +61,3 @@ to restrict the service to Iran ip address run the `iraccess.sh`. (Recommended f
 ```
 
 <br>
-
-
-### Cluster Mode ( docker swarm - single node ) 
-You can also increase reliability and connectivity, with help of **Cluster Mode**. To have a cluster, do the following steps:
-
-**1. Initialize swarm mode**
-```bash
-docker swarm init
-```
-
-
-**2. Create docker swarm service**
-```bash
-docker service create --cap-add=NET_ADMIN -p 53:53/udp -p 443:443 -p 80:80 -e IP=PublicIpOfContainer --name maj0rdnscontainer maj0rdns:latest
-```
-
-**3. Scale the service to 5 instances**
-```bash
-docker service scale maj0rdnscontainer=5
-```
-
-**4. Verify the cluster**
-
-It’s necessary to verify that the previous steps are working correctly and that all of them are running.
-```bash
-docker service ls
-
-docker service ps maj0rdnscontainer
-```
-
-![image](https://user-images.githubusercontent.com/46486478/187826199-498a76f1-1526-4b3d-a70a-ccc3eff80bf3.png)
-
-
-**5. Verify the service**
-
-![image](https://user-images.githubusercontent.com/46486478/187826236-ddf2e475-bb4d-459a-8dc3-4f8be36f6685.png)
-
