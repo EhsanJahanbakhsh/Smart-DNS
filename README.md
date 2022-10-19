@@ -10,7 +10,7 @@ dns geo restorations of specific various web services.
 ### Pull & run the pre build image
 ```bash
 
-docker run -d -it --cap-add=NET_ADMIN -p 53:53/udp -p 443:443 -p 80:80 -e IP=PublicIpOfContainer rezdns:latest
+docker run -d -it --cap-add=NET_ADMIN -p 53:53/udp -p 443:443 -p 80:80 --restart always -e IP=PublicIpOfContainer rezdns:latest
 ```
 
 ### Build
@@ -22,7 +22,7 @@ docker build . -t rezdns:latest
 ### Run
 ```bash
 # Now run the mentioned docker in the previous step
-docker run -d -it --cap-add=NET_ADMIN -p 53:53/udp -p 443:443 -p 80:80 -e IP=PublicIpOfContainer rezdns:latest
+docker run -d -it --cap-add=NET_ADMIN -p 53:53/udp -p 443:443 -p 80:80 --restart always -e IP=PublicIpOfContainer rezdns:latest
 ```
 
 ### Usage
