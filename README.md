@@ -1,4 +1,4 @@
-rezdnsssing geo restorations of specific various web services.
+dns geo restorations of specific various web services.
 
 *🎗️ Hint : this service should be only available to a specefic geo or specefic ip addresses to prevent attacks and etc problem*
 
@@ -9,21 +9,20 @@ rezdnsssing geo restorations of specific various web services.
 
 ### Pull & run the pre build image
 ```bash
-# pull the image and run it
-docker pull rezdns/rezdns
-docker run -d -it --cap-add=NET_ADMIN -p 53:53/udp -p 443:443 -p 80:80 -e IP=PublicIpOfContainer rezdns/rezdns
+
+docker run -d -it --cap-add=NET_ADMIN -p 53:53/udp -p 443:443 -p 80:80 -e IP=PublicIpOfContainer rezdns:latest
 ```
 
 ### Build
 ```bash
 # Build the docker image, so you could use the docker image and its context in the future easily
-docker build . -t rezdns/rezdns:latest
+docker build . -t rezdns:latest
 ```
 
 ### Run
 ```bash
 # Now run the mentioned docker in the previous step
-docker run -d -it --cap-add=NET_ADMIN -p 53:53/udp -p 443:443 -p 80:80 -e IP=PublicIpOfContainer rezdns/rezdns:latest
+docker run -d -it --cap-add=NET_ADMIN -p 53:53/udp -p 443:443 -p 80:80 -e IP=PublicIpOfContainer rezdns:latest
 ```
 
 ### Usage
