@@ -13,7 +13,7 @@ EXPOSE 443
 
 #public ip of the container
 
-ENV IP 162.55.10.138
+ENV IP $IP
 ENV ALLOWED_IP 0.0.0.0/0
 
 CMD echo "Configure iptables..." && \
